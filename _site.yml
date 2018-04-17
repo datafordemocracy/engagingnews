@@ -1,0 +1,13 @@
+name: "Engaging News Presentation"
+output_dir: "."
+navbar:
+  title: "Engaging News"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Background"
+      href: background.html
+    - text: "Research Goals"
+      href: goals.html
+    - text: "So Far"
+      href: sofar.html

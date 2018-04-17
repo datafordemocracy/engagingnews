@@ -1,0 +1,25 @@
+---
+title: "Research Goals"
+output: html_document
+---
+
+# Leads to
+
+## Two inspirations
+
+ - polling aggregation, as epitomized by site's like Nate Silver's 538
+ - distant reading: not studying the news, but consuming a greater quantity of news via machine reading
+
+## Larger Goal: Machine Learning to Promote Collective Citizen Capacity
+ - a dynamic representation of presidentially-relevant news
+ - but also, research questions 
+ - and hands-on educational experiences  
+
+## Why this makese sense in my continually evolving understanding of libraries
+
+ - Libraries have been the vanguard of democratizing information by lowering barriers to access. The Library, in partnership with domain experts, is an ideal environment for re- searching and developing tools and methods to help citizens at large better use political information and lower the cost of political attentiveness. Aligned with core library values: promoting equal information access and use, enabling democratic governance, and contributing to the public good.
+
+
+## Related efforts (but not really)
+ - ADD from github
+ 
