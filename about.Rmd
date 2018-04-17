@@ -11,10 +11,10 @@ output:
 
 ## ... of an ongoing research project
 
-### ... a genesis story in emails
-
 <div style="margin-bottom:100px;">
 </div>
+
+### ... a genesis story in emails
 
 From: Todd  
 Date: Thursday, March 15, 2018 at 9:18 AM  
@@ -64,6 +64,7 @@ Do you want me to set up a time and location?  If so, send me some dates and tim
 
 ***
 ...  
+...
 
 ***
 
