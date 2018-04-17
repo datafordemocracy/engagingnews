@@ -338,7 +338,7 @@ grid.arrange(pioped1, pioped2, nrow = 1)
 
 Via LDA topic model
 
-```{r topic, message = FALSE, cache = TRUE}
+```{r topic, message = FALSE, cache = TRUE, fig.height=7}
 rm(list=ls())
 library(tidyverse)
 library(quanteda)
