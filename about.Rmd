@@ -11,9 +11,9 @@ output:
 
 ## ... of an ongoing research project
 
-### .. a genesis story in emails
+### ... a genesis story in emails
 
-<div style="margin-bottom:50px;">
+<div style="margin-bottom:100px;">
 </div>
 
 From: Todd  
