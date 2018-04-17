@@ -32,22 +32,23 @@ h3 { /* Header 3 */
 
 to promote collective citizen capacity
 
-1. Generate
+1. Generation
 
- - a dynamic representation of presidentially-relevant news
- - but also, research questions 
- - and hands-on educational experiences  
+    - a dynamic representation of presidentially-relevant news
+    - but also, research questions 
+    - and hands-on educational experiences  
 
-2. Some inspirations
+2. Inspiration
 
- - polling aggregation, as epitomized by site's like Nate Silver's 538
- - distant reading, not studying the news, but consuming a greater quantity of news via machine reading
+    - polling aggregation, as epitomized by site's like Nate Silver's [538](http://fivethirtyeight.com/)
+    - distant reading, not studying the news, but consuming a greater quantity of news via machine reading
 
-3. Why this makes sense in my continually evolving understanding of libraries
+3. Libraries!
+... Why this makes sense in my continually evolving understanding of libraries
 
- - The vanguard of democratizing information by lowering barriers to access
- - Connected to expansion from information access to information use
- - Alignment with [core library values](http://www.ala.org/advocacy/intfreedom/corevalues): promoting equal information access and use, enabling democratic governance, and contributing to the public good.
+    - The vanguard of democratizing information by lowering barriers to access
+    - Connected to expansion from information access to information use
+    - Alignment with [core library values](http://www.ala.org/advocacy/intfreedom/corevalues): promoting equal information access and use, enabling democratic governance, and contributing to the public good.
 
 <div style="margin-bottom:50px;">
 </div>
