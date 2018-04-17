@@ -1,7 +1,5 @@
 ---
 title: "Imagining New Ways to Engage Political News"
-author: Michele Claibourn
-date: "April 17, 2018"
 output: 
   html_document: 
     fig_caption: yes
@@ -9,9 +7,31 @@ output:
     toc_float: true
 ---
 
-## ... Starting with the Presidency
+<style type="text/css">
 
-### or, Monitoring Presidential Information Streams
+h1.title {
+  font-size: 38px;
+  color: #232D4B;
+}
+h1 { /* Header 1 */
+  font-size: 28px;
+  color: #E57200;
+}
+h2 { /* Header 2 */
+    font-size: 22px;
+  color: #666666;
+}
+h3 { /* Header 3 */
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  color: #141E3C;
+}
+</style>
+
+
+# ... Starting with the Presidency
+
+## or, monitoring presidential information streams
 
 The initial project of the [Data for Democracy Lab @ UVA](https://datafordemocracy.github.io/public-presidency/), The Public Presidency Project, began to form after a series of conversations with people from a variety of perspectives who consistently communicated: “I can’t read/watch the news anymore. It’s too…[exhausting, depressing, distracting, anger-inducing, polarizing, … ].”
 
