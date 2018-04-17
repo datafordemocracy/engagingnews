@@ -3,25 +3,29 @@ title: "Background"
 output: html_document
 ---
 
-## Longstanding challenges
+### Linky literature
+
+Political scientists, communication scholars, journalists, and others have spent considerable ink enumerating the shortfalls of citizens...
 
  - selective attention
  - limited civic capacity
  - distaste for politics
 
-## Exacerbated by the proliferation of information sources and channels
+The proliferation of information sources and channels has amplified the challenges
 
  - information filter bubbles/echo chambers
  - information overload
  - distrust of media and uncertainty about new sources
+ - uninformed, misinformed, disinformed
  
-## This is bad 
+This is bad 
 
  - declining attention exacerbates political (and thus economic and social) inequalities...
- - considerable evidence that leaders (already) attend primarily to the preferences of the affluent and elite...
+ - leaders (already) attend primarily to the preferences of the affluent and elite...
  - unequal information will make this so much worse...
  
-## There must be a better way
+### There must be a better way
+
  - to engage political news, 
  - to monitor the activities and attentions of government from a relatively high level, 
  - to encourage the consumption of information from multiple and varied sources

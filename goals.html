@@ -206,35 +206,44 @@ $(document).ready(function () {
 </div>
 
 
-<div id="leads-to" class="section level1">
-<h1>Leads to</h1>
-<div id="two-inspirations" class="section level2">
-<h2>Two inspirations</h2>
-<ul>
-<li>polling aggregation, as epitomized by site’s like Nate Silver’s 538</li>
-<li>distant reading: not studying the news, but consuming a greater quantity of news via machine reading</li>
-</ul>
-</div>
-<div id="larger-goal-machine-learning-to-promote-collective-citizen-capacity" class="section level2">
-<h2>Larger Goal: Machine Learning to Promote Collective Citizen Capacity</h2>
+<div id="machine-learning-to-promote-collective-citizen-capacity" class="section level3">
+<h3>Machine Learning to Promote Collective Citizen Capacity</h3>
+<p>Generate</p>
 <ul>
 <li>a dynamic representation of presidentially-relevant news</li>
 <li>but also, research questions</li>
 <li>and hands-on educational experiences</li>
 </ul>
-</div>
-<div id="why-this-makese-sense-in-my-continually-evolving-understanding-of-libraries" class="section level2">
-<h2>Why this makese sense in my continually evolving understanding of libraries</h2>
+<p>Some inspirations</p>
 <ul>
-<li>Libraries have been the vanguard of democratizing information by lowering barriers to access. The Library, in partnership with domain experts, is an ideal environment for re- searching and developing tools and methods to help citizens at large better use political information and lower the cost of political attentiveness. Aligned with core library values: promoting equal information access and use, enabling democratic governance, and contributing to the public good.</li>
+<li>polling aggregation, as epitomized by site’s like Nate Silver’s 538</li>
+<li>distant reading, not studying the news, but consuming a greater quantity of news via machine reading</li>
+</ul>
+<p>Why this makese sense in my continually evolving understanding of libraries</p>
+<ul>
+<li>The vanguard of democratizing information by lowering barriers to access</li>
+<li>Connected to expansion from information access to information use</li>
+<li>Alignment with <a href="http://www.ala.org/advocacy/intfreedom/corevalues">core library values</a>: promoting equal information access and use, enabling democratic governance, and contributing to the public good.</li>
 </ul>
 </div>
-<div id="related-efforts-but-not-really" class="section level2">
-<h2>Related efforts (but not really)</h2>
+<div id="related-efforts-sort-of" class="section level3">
+<h3>Related efforts (sort of)</h3>
+<p>Profit-oriented: Methods are not open/transparent (proprietary), sources aren’t known, content is not free…</p>
 <ul>
-<li>ADD from github</li>
+<li><a href="https://aylien.com/news-api/">Aylien’s news api</a>, provides number of stories/day, number of negative and positive stories, and average polarity, wordcloud of stories, category of news (e.g., news, law/politics, finance, travel, sports, etc.) and article length; entities, example sentences, sentiment, related stories for individual stories;</li>
+<li>Alorithmia provides algorithms that could piece something like this together, <a href="https://blog.algorithmia.com/create-your-own-machine-learning-powered-rss/">for example</a></li>
+<li>Lexis-Nexis acquired Moreover who provided media monitoring and news aggregation, now <a href="https://www.lexisnexis.com/en-us/products/newsdesk.page">Newsdesk</a>; less sure what it provides now</li>
+<li><a href="https://github.com/AlchemyAPI">AlchemyAPI</a> acquird by IBM; Alchemy DataNews is now <a href="https://www.ibm.com/watson/services/discovery-news/">Watson Discovery News</a>; given search term, returns top stories with links, entities (topics, people), sentiment (and sentient by source domain), anomalies (days with unusually high mentions), co-mentioned entities (and sentiment of co-mentions).</li>
 </ul>
-</div>
+<p>Academic- or public-oriented</p>
+<ul>
+<li><a href="https://tvnews.vanderbilt.edu/">Vanderbilt TV News archive</a>: newscasts from ABC, CBS, NBC, CNN and Fox News; searchable database of abstracts at story level, but transcripts or story features not provided. Stories are manually abstracted (and segmented?).</li>
+<li><a href="https://archive.org/details/tv">Internet Archive’s TV News archive</a>: search closed-caption transcripts, shows/clips (and transcripts?) divided into 60 second segments; included sources are clearly identified. In February 2018, expressed interest in working with researchers interested in <a href="https://blog.archive.org/2018/02/22/expanding-the-television-archive/">“non-consumptive analysis of television at scale.”</a> – a possibility?</li>
+<li><a href="https://api.gdeltproject.org/api/v2/summary/summary?DATASET=IATV&amp;TYPE=SUMMARY&amp;STARTDATETIME=&amp;ENDDATETIME=">GDELT Summary Television Explorer</a>: working with TV news archive. Returns summary of appearance of query term – volume (based on 15 second blocks, percent of blocks in which search term appears), by station, wordcloud, and top clips. <a href="https://github.com/hrbrmstr/newsflash"><code>newsflash</code></a> is R package for interacting with IA/GDELT</li>
+<li><a href="https://www.gdeltproject.org/">GDELT (broadly)</a>: “monitors the world’s broadcast, print, and web news from nearly every corner of every country in over 100 languages” – an expansion of global event data system (started with sample of Summary of World Broadcasts)</li>
+<li><a href="https://tvnews.sscnet.ucla.edu/public/">UCLA communication archive</a>: can enter search term (and date), returns clips and ability to facet by network.</li>
+<li><a href="http://www.newsreader-project.eu/news-events/news/">Newsreader</a> project: also event data focused</li>
+</ul>
 </div>
 
 

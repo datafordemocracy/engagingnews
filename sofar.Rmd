@@ -3,36 +3,36 @@ title: "So Far"
 output: html_document
 ---
 
-# So where are we?
+### So where are we?
 
- - acquired and initial analysis of: NYT, WP, WSJ, tweets, presdocs
- - acquired: have transcripts from three top-rated news-oriented shows on each of CNN, Fox, MSNBC; but still working on story segmentation to chunk out the "stories" about trump from the rest of the transcript
- - not yet acquired: sampling of top digital news sources (e.g., buzzfeed, )
- - the goals isn't really to have "everything" or some massive set of sources represented (remember the small, carefully curated approach of Nate Silver), but to have a range of sources -- significant for their own reasons (audience share, history) -- represented
+ - Acquired with initial exploration
+  - articles from the New York Times, Wall Street Journal, Washington Post (January 20, 2017 to February 28, 2018)
+  - formal presidential statements from the Daily Compilation of Presidential Documents (January 20, 2017 through February 28, 2018)
+  - informal presidential communication via the Trump Twitter archive (January 20, 2017 through March 31, 2018)
+
+ - Acquired
+  - transcripts from three top-rated news-oriented shows on each of CNN, Fox, MSNBC (January 20, 2017 through February 28, 2018)
+  - still working on story segmentation to chunk out the "stories" about Trump/presidency
+
+ - Not even begun
+  - sampling of top digital news sources (e.g., BuzzFeed, Breitbart, Politico, Vox)
+
+Not about having **everything** or a massive set of sources, but representing a range of sources, significant for their own reasons (audience share, history, influence).
  
-## Where are we going?
- - extract common features from diverse sources -- challenging given differences in formats, audiences, structure, language
- - represent those features visually and dynamically -- yikes!
- - experimentally validate how citizens "read" this information, and iterate
-
-# Some exploration for fun
- - readability, sentiment
- - topics, keyword comparisons
  
-## CONVERSATION
-# So where are we?
+### What's next?
 
- - acquired and initial analysis of: NYT, WP, WSJ, tweets, presdocs
- - acquired: have transcripts from three top-rated news-oriented shows on each of CNN, Fox, MSNBC; but still working on story segmentation to chunk out the "stories" about trump from the rest of the transcript
- - not yet acquired: sampling of top digital news sources (e.g., buzzfeed, )
- - the goals isn't really to have "everything" or some massive set of sources represented (remember the small, carefully curated approach of Nate Silver), but to have a range of sources -- significant for their own reasons (audience share, history) -- represented
- 
-## Where are we going?
- - extract common features from diverse sources -- challenging given differences in formats, audiences, structure, language
- - represent those features visually and dynamically -- yikes!
- - experimentally validate how citizens "read" this information, and iterate
+The fun part!
 
-# Some exploration for fun
+ - extract common features from diverse sources 
+ - derived from theories of presidential/political accountability (e.g., complexity, tone/affect, keywords, topics, moral language, issue/policy attention, ideological position, named entities, and presidential events (e.g., agent-verb-object).)
+ - represent features visually, dynamically, comparatively (openly, reproducibly)
+ - experimentally validate how citizens "read" this information
+ - iterate
+ - plus, straight up social science on polarization, agenda-setting, etc. in media ecosystem
+
+## Some exploration for fun
+
  - readability, sentiment
  - topics, keyword comparisons
  
