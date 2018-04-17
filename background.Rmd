@@ -1,15 +1,40 @@
 ---
 title: "Background"
-output: html_document
+output: 
+  html_document: 
+    fig_caption: yes
+    toc: yes
+    toc_float: true
 ---
 
-### Linky literature
+<style type="text/css">
+
+h1.title {
+  font-size: 38px;
+  color: #232D4B;
+}
+h1 { /* Header 1 */
+  font-size: 28px;
+  color: #E57200;
+}
+h2 { /* Header 2 */
+    font-size: 22px;
+  color: #666666;
+}
+h3 { /* Header 3 */
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  color: #141E3C;
+}
+</style>
+
+# Literature
 
 Political scientists, communication scholars, journalists, and others have spent considerable ink enumerating the shortfalls of citizens...
 
  - selective attention
- - limited civic capacity
  - distaste for politics
+ - limited political knowledge, uniformed
 
 The proliferation of information sources and channels has amplified the challenges
 
@@ -24,7 +49,12 @@ This is bad
  - leaders (already) attend primarily to the preferences of the affluent and elite...
  - unequal information will make this so much worse...
  
-### There must be a better way
+<div style="margin-bottom:50px;">
+</div>
+
+# Another way?
+
+There must be a better way
 
  - to engage political news, 
  - to monitor the activities and attentions of government from a relatively high level, 

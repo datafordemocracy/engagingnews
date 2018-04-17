@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -163,6 +166,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -189,6 +287,12 @@ $(document).ready(function () {
 <li>
   <a href="sofar.html">So Far</a>
 </li>
+<li>
+  <a href="explore.html">Exploration</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -206,48 +310,85 @@ $(document).ready(function () {
 </div>
 
 
-<div id="machine-learning-to-promote-collective-citizen-capacity" class="section level3">
-<h3>Machine Learning to Promote Collective Citizen Capacity</h3>
-<p>Generate</p>
+<style type="text/css">
+
+h1.title {
+  font-size: 38px;
+  color: #232D4B;
+}
+h1 { /* Header 1 */
+  font-size: 28px;
+  color: #E57200;
+}
+h2 { /* Header 2 */
+    font-size: 22px;
+  color: #666666;
+}
+h3 { /* Header 3 */
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  color: #141E3C;
+}
+</style>
+<div id="machine-learning" class="section level1">
+<h1>Machine learning…</h1>
+<p>to promote collective citizen capacity</p>
+<ol style="list-style-type: decimal">
+<li>Generate</li>
+</ol>
 <ul>
 <li>a dynamic representation of presidentially-relevant news</li>
 <li>but also, research questions</li>
 <li>and hands-on educational experiences</li>
 </ul>
-<p>Some inspirations</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Some inspirations</li>
+</ol>
 <ul>
 <li>polling aggregation, as epitomized by site’s like Nate Silver’s 538</li>
 <li>distant reading, not studying the news, but consuming a greater quantity of news via machine reading</li>
 </ul>
-<p>Why this makese sense in my continually evolving understanding of libraries</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Why this makes sense in my continually evolving understanding of libraries</li>
+</ol>
 <ul>
 <li>The vanguard of democratizing information by lowering barriers to access</li>
 <li>Connected to expansion from information access to information use</li>
 <li>Alignment with <a href="http://www.ala.org/advocacy/intfreedom/corevalues">core library values</a>: promoting equal information access and use, enabling democratic governance, and contributing to the public good.</li>
 </ul>
+<div style="margin-bottom:50px;">
+
 </div>
-<div id="related-efforts-sort-of" class="section level3">
-<h3>Related efforts (sort of)</h3>
-<p>Profit-oriented: Methods are not open/transparent (proprietary), sources aren’t known, content is not free…</p>
+</div>
+<div id="related-efforts-sort-of" class="section level1">
+<h1>Related efforts (sort of)</h1>
+<p>Additonal notes on these are <a href="https://github.com/datafordemocracy/publicpresidency/blob/master/notetoself.md">here</a>; ping me if there’s something I should add to the evolving list!</p>
+<div id="profit-oriented" class="section level2">
+<h2>Profit-oriented</h2>
+<p>Methods are not open/transparent (proprietary), sources aren’t known, content is not free…</p>
 <ul>
-<li><a href="https://aylien.com/news-api/">Aylien’s news api</a>, provides number of stories/day, number of negative and positive stories, and average polarity, wordcloud of stories, category of news (e.g., news, law/politics, finance, travel, sports, etc.) and article length; entities, example sentences, sentiment, related stories for individual stories;</li>
-<li>Alorithmia provides algorithms that could piece something like this together, <a href="https://blog.algorithmia.com/create-your-own-machine-learning-powered-rss/">for example</a></li>
-<li>Lexis-Nexis acquired Moreover who provided media monitoring and news aggregation, now <a href="https://www.lexisnexis.com/en-us/products/newsdesk.page">Newsdesk</a>; less sure what it provides now</li>
-<li><a href="https://github.com/AlchemyAPI">AlchemyAPI</a> acquird by IBM; Alchemy DataNews is now <a href="https://www.ibm.com/watson/services/discovery-news/">Watson Discovery News</a>; given search term, returns top stories with links, entities (topics, people), sentiment (and sentient by source domain), anomalies (days with unusually high mentions), co-mentioned entities (and sentiment of co-mentions).</li>
-</ul>
-<p>Academic- or public-oriented</p>
-<ul>
-<li><a href="https://tvnews.vanderbilt.edu/">Vanderbilt TV News archive</a>: newscasts from ABC, CBS, NBC, CNN and Fox News; searchable database of abstracts at story level, but transcripts or story features not provided. Stories are manually abstracted (and segmented?).</li>
-<li><a href="https://archive.org/details/tv">Internet Archive’s TV News archive</a>: search closed-caption transcripts, shows/clips (and transcripts?) divided into 60 second segments; included sources are clearly identified. In February 2018, expressed interest in working with researchers interested in <a href="https://blog.archive.org/2018/02/22/expanding-the-television-archive/">“non-consumptive analysis of television at scale.”</a> – a possibility?</li>
-<li><a href="https://api.gdeltproject.org/api/v2/summary/summary?DATASET=IATV&amp;TYPE=SUMMARY&amp;STARTDATETIME=&amp;ENDDATETIME=">GDELT Summary Television Explorer</a>: working with TV news archive. Returns summary of appearance of query term – volume (based on 15 second blocks, percent of blocks in which search term appears), by station, wordcloud, and top clips. <a href="https://github.com/hrbrmstr/newsflash"><code>newsflash</code></a> is R package for interacting with IA/GDELT</li>
-<li><a href="https://www.gdeltproject.org/">GDELT (broadly)</a>: “monitors the world’s broadcast, print, and web news from nearly every corner of every country in over 100 languages” – an expansion of global event data system (started with sample of Summary of World Broadcasts)</li>
-<li><a href="https://tvnews.sscnet.ucla.edu/public/">UCLA communication archive</a>: can enter search term (and date), returns clips and ability to facet by network.</li>
-<li><a href="http://www.newsreader-project.eu/news-events/news/">Newsreader</a> project: also event data focused</li>
+<li><a href="https://aylien.com/news-api/">Aylien’s news search api</a>, provides number of stories and features baesd on search terms</li>
+<li>Lexis-Nexis <a href="https://www.lexisnexis.com/en-us/products/newsdesk.page">Newsdesk</a>, acquired Moreover, a media monitoring and news aggregation service</li>
+<li>IBM <a href="https://www.ibm.com/watson/services/discovery-news/">Watson Discovery News</a>, acquired <a href="https://github.com/AlchemyAPI">Alchemy DataNews API</a>, proivdes top stories and features based on search terms</li>
 </ul>
 </div>
+<div id="academic--or-public-oriented" class="section level2">
+<h2>Academic- or public-oriented</h2>
+<ul>
+<li><a href="https://tvnews.vanderbilt.edu/">Vanderbilt TV News archive</a>, searchable database of story abstracts from ABC, CBS, NBC, CNN, Fox newscasts</li>
+<li><a href="https://archive.org/details/tv">Internet Archive’s TV News archive</a>: search closed-caption transcripts divided into 60 second segments</li>
+<li><a href="https://api.gdeltproject.org/api/v2/summary/summary?DATASET=IATV&amp;TYPE=SUMMARY&amp;STARTDATETIME=&amp;ENDDATETIME=">GDELT Summary Television Explorer</a>, working with TV news archive, returns summaries of appearance of search term (<code>newsflash</code>](<a href="https://github.com/hrbrmstr/newsflash" class="uri">https://github.com/hrbrmstr/newsflash</a>), an R package for interacting with IA/GDELT)</li>
+<li><a href="https://www.gdeltproject.org/">GDELT (broadly)</a>, “monitors the world’s broadcast, print, and web news from nearly every corner of every country in over 100 languages”</li>
+<li><a href="https://tvnews.sscnet.ucla.edu/public/">UCLA communication archive</a>, returns clips containing search term</li>
+<li><a href="http://www.newsreader-project.eu/news-events/news/">Newsreader</a> project, event data focused (currently maintained?)</li>
+</ul>
+</div>
+</div>
 
 
 
+</div>
+</div>
 
 </div>
 

@@ -11,3 +11,7 @@ navbar:
       href: goals.html
     - text: "So Far"
       href: sofar.html
+    - text: "Exploration"
+      href: explore.html
+    - text: "About"
+      href: about.html

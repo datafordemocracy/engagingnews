@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -163,6 +166,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -189,6 +287,12 @@ $(document).ready(function () {
 <li>
   <a href="sofar.html">So Far</a>
 </li>
+<li>
+  <a href="explore.html">Exploration</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -206,46 +310,99 @@ $(document).ready(function () {
 </div>
 
 
-<div id="so-where-are-we" class="section level3">
-<h3>So where are we?</h3>
+<style type="text/css">
+
+h1.title {
+  font-size: 38px;
+  color: #232D4B;
+}
+h1 { /* Header 1 */
+  font-size: 28px;
+  color: #E57200;
+}
+h2 { /* Header 2 */
+    font-size: 22px;
+  color: #666666;
+}
+h3 { /* Header 3 */
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  color: #141E3C;
+}
+</style>
+<div id="where-are-we" class="section level1">
+<h1>Where are we?</h1>
+<div id="acquired-with-initial-exploration" class="section level2">
+<h2>Acquired with initial exploration</h2>
 <ul>
-<li>Acquired with initial exploration</li>
 <li>articles from the New York Times, Wall Street Journal, Washington Post (January 20, 2017 to February 28, 2018)</li>
 <li>formal presidential statements from the Daily Compilation of Presidential Documents (January 20, 2017 through February 28, 2018)</li>
-<li><p>informal presidential communication via the Trump Twitter archive (January 20, 2017 through March 31, 2018)</p></li>
-<li>Acquired</li>
+<li>informal presidential communication via the Trump Twitter archive (January 20, 2017 through March 31, 2018)</li>
+</ul>
+</div>
+<div id="acquired" class="section level2">
+<h2>Acquired</h2>
+<ul>
 <li>transcripts from three top-rated news-oriented shows on each of CNN, Fox, MSNBC (January 20, 2017 through February 28, 2018)</li>
-<li><p>still working on story segmentation to chunk out the “stories” about Trump/presidency</p></li>
-<li>Not even begun</li>
-<li><p>sampling of top digital news sources (e.g., BuzzFeed, Breitbart, Politico, Vox)</p></li>
+<li>still working on story segmentation to chunk out the “stories” about Trump/presidency</li>
+</ul>
+</div>
+<div id="not-even-begun" class="section level2">
+<h2>Not even begun</h2>
+<ul>
+<li>sampling of top digital news sources (e.g., BuzzFeed, Breitbart, Politico, Vox)</li>
 </ul>
 <p>Not about having <strong>everything</strong> or a massive set of sources, but representing a range of sources, significant for their own reasons (audience share, history, influence).</p>
+<div style="margin-bottom:50px;">
+
 </div>
-<div id="whats-next" class="section level3">
-<h3>What’s next?</h3>
+</div>
+</div>
+<div id="whats-next" class="section level1">
+<h1>What’s next?</h1>
 <p>The fun part!</p>
+<div id="extract" class="section level2">
+<h2>extract</h2>
 <ul>
-<li>extract common features from diverse sources</li>
-<li>derived from theories of presidential/political accountability (e.g., complexity, tone/affect, keywords, topics, moral language, issue/policy attention, ideological position, named entities, and presidential events (e.g., agent-verb-object).)</li>
-<li>represent features visually, dynamically, comparatively (openly, reproducibly)</li>
-<li>experimentally validate how citizens “read” this information</li>
-<li>iterate</li>
-<li>plus, straight up social science on polarization, agenda-setting, etc. in media ecosystem</li>
+<li>common features</li>
+<li>from diverse sources</li>
+<li>derived from theories of presidential/political accountability</li>
 </ul>
 </div>
-<div id="some-exploration-for-fun" class="section level2">
-<h2>Some exploration for fun</h2>
+<div id="represent" class="section level2">
+<h2>represent</h2>
 <ul>
-<li>readability, sentiment</li>
-<li>topics, keyword comparisons</li>
+<li>visually</li>
+<li>dynamically</li>
+<li>comparatively</li>
 </ul>
 </div>
-<div id="conversation" class="section level2">
-<h2>CONVERSATION</h2>
+<div id="validate" class="section level2">
+<h2>validate</h2>
+<ul>
+<li>experiments on how citizens “read” different features</li>
+</ul>
+</div>
+<div id="iterate" class="section level2">
+<h2>iterate</h2>
+<ul>
+<li>while adding news each month (or so)</li>
+</ul>
+</div>
+<div id="and-straight-up-social-science" class="section level2">
+<h2>And straight up social science</h2>
+<ul>
+<li>polarization</li>
+<li>agenda setting</li>
+<li>accountability</li>
+</ul>
+</div>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 

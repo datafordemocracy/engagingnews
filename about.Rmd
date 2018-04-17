@@ -1,0 +1,73 @@
+---
+title: "An informal presentation"
+author: Michele Claibourn
+date: April 17, 2018
+output: 
+  html_document: 
+    fig_caption: yes
+    toc: yes
+    toc_float: true
+---
+
+## ... of an ongoing research project
+
+### .. a genesis story in emails
+
+From: Todd  
+Date: Thursday, March 15, 2018 at 9:18 AM  
+Subject: How Critical Thinking and Media Literacy Efforts are Backfiring  
+
+[https://www.edsurge.com/news/2018-03-07-danah-boyd-how-critical-thinking-and-media-literacy-efforts-are-backfiring-today](https://www.edsurge.com/news/2018-03-07-danah-boyd-how-critical-thinking-and-media-literacy-efforts-are-backfiring-today)
+
+Thanks to Fang for the link!
+
+***
+
+From: Michele  
+Date: Thursday, March 15, 2018 11:33 AM  
+Subject: Re: How Critical Thinking and Media Literacy Efforts are Backfiring  
+
+Hi Todd (and all),
+ 
+To tack on to this, I’m working on a project that that ties into media literacy, but from a different angle; specifically (from a more formal document I’ve been working on) by working to “imagine and develop new ways for the public to engage political news, one that allows people to monitor the activities and attentions of government from a relatively high level, that encourages the consumption of information from multiple and varied sources, and that lowers the barriers to attentive citizenship in ways that reduce inequalities in time, education, and access.”
+ 
+So it’s less about scrutiny of individual news (which strikes most political scientists as an improbable expectation of citizens, given what we know about the limited attention most folks pay to politics), and more about the ability to “read” widely across news from a range of sources (crossing a range of perceived ideological perspectives), in response to the increase in echo chambers and filter bubbles. A sort of machine learning to enhance civic capacity!
+ 
+Sorry for the intrusion, but if this sounds at all interesting, I’m happy to talk with people about it.
+
+***
+
+From: Jill  
+Date: Thursday, March 15, 2018 at 11:36 AM  
+Subject: Re: How Critical Thinking and Media Literacy Efforts are Backfiring  
+
+As you know I’m intensely interested in your project! Would you be willing to present about this to staff broadly?
+
+***
+
+From: Michele  
+Date: Thursday, March 15, 2018 at 11:42 AM  
+Subject: Re: How Critical Thinking and Media Literacy Efforts are Backfiring  
+
+Will I talk about a project I’ve been consumed with for the last year?! You bet! (And it’s still in super early stages, so wider feedback, which is always welcome, could be especially helpful)…
+
+***
+
+From: Suzanne  
+Date: Thursday, March 15, 2018 at 12:18 PM  
+Subject: Re: How Critical Thinking and Media Literacy Efforts are Backfiring  
+
+Do you want me to set up a time and location?  If so, send me some dates and times that would work for you.
+
+***
+...  
+
+***
+
+From: Michele  
+Date: Thursday, March 15, 2018 at 5:26 PM  
+Subject: Re: How Critical Thinking and Media Literacy Efforts are Backfiring  
+
+Sure! (followed by logistics)
+
+***
