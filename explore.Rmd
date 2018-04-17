@@ -239,7 +239,7 @@ grid.arrange(phoped1, phoped2, nrow = 1)
 <div style="margin-bottom:50px;">
 </div>
 
-### Ingroup/Loyaly-Other/Betrayal dimension
+### Ingroup/Loyalty-Other/Betrayal dimension
 
 Within news articles
 
