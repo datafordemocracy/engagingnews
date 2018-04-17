@@ -1,0 +1,17 @@
+---
+title: "Public Presidency Project Presentation"
+author: Michele Claibourn"
+date: "April 17, 2018"
+output: 
+  html_document: 
+    fig_caption: yes
+    toc: yes
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Engaging Political News
+

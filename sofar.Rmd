@@ -1,0 +1,39 @@
+---
+title: "So Far"
+output: html_document
+---
+
+# So where are we?
+
+ - acquired and initial analysis of: NYT, WP, WSJ, tweets, presdocs
+ - acquired: have transcripts from three top-rated news-oriented shows on each of CNN, Fox, MSNBC; but still working on story segmentation to chunk out the "stories" about trump from the rest of the transcript
+ - not yet acquired: sampling of top digital news sources (e.g., buzzfeed, )
+ - the goals isn't really to have "everything" or some massive set of sources represented (remember the small, carefully curated approach of Nate Silver), but to have a range of sources -- significant for their own reasons (audience share, history) -- represented
+ 
+## Where are we going?
+ - extract common features from diverse sources -- challenging given differences in formats, audiences, structure, language
+ - represent those features visually and dynamically -- yikes!
+ - experimentally validate how citizens "read" this information, and iterate
+
+# Some exploration for fun
+ - readability, sentiment
+ - topics, keyword comparisons
+ 
+## CONVERSATION
+# So where are we?
+
+ - acquired and initial analysis of: NYT, WP, WSJ, tweets, presdocs
+ - acquired: have transcripts from three top-rated news-oriented shows on each of CNN, Fox, MSNBC; but still working on story segmentation to chunk out the "stories" about trump from the rest of the transcript
+ - not yet acquired: sampling of top digital news sources (e.g., buzzfeed, )
+ - the goals isn't really to have "everything" or some massive set of sources represented (remember the small, carefully curated approach of Nate Silver), but to have a range of sources -- significant for their own reasons (audience share, history) -- represented
+ 
+## Where are we going?
+ - extract common features from diverse sources -- challenging given differences in formats, audiences, structure, language
+ - represent those features visually and dynamically -- yikes!
+ - experimentally validate how citizens "read" this information, and iterate
+
+# Some exploration for fun
+ - readability, sentiment
+ - topics, keyword comparisons
+ 
+## CONVERSATION
