@@ -32,18 +32,18 @@ h3 { /* Header 3 */
 
 ## Acquired with initial exploration
 
-  - articles from the New York Times, Wall Street Journal, Washington Post (January 20, 2017 to February 28, 2018)
-  - formal presidential statements from the Daily Compilation of Presidential Documents (January 20, 2017 through February 28, 2018)
-  - informal presidential communication via the Trump Twitter archive (January 20, 2017 through March 31, 2018)
+  - articles from the New York Times, Wall Street Journal, Washington Post (1/20/17 through 2/28/18) -- thank you Lexis-Nexis and Factiva!
+  - formal presidential statements from the [Daily Compilation of Presidential Documents](https://www.gpo.gov/fdsys/browse/collection.action?collectionCode=CPD) (1/20/17 through 2/28/18)
+  - informal presidential communication via the [Trump Twitter archive](http://www.trumptwitterarchive.com/) (1/20/17 through 3/31/18)
 
 ## Acquired
 
-  - transcripts from three top-rated news-oriented shows on each of CNN, Fox, MSNBC (January 20, 2017 through February 28, 2018)
+  - transcripts scraped from three top-rated news-oriented shows on each of CNN, Fox, MSNBC (1/20/17 through 2/28/18)
   - still working on story segmentation to chunk out the "stories" about Trump/presidency
 
 ## Not even begun
 
-  - sampling of top digital news sources (e.g., BuzzFeed, Breitbart, Politico, Vox)
+  - sampling of top digital news sources (e.g., BuzzFeed, Breitbart, Politico, Vox, [???](http://www.journalism.org/2017/06/01/state-of-the-news-media-methodology/))
 
 Not about having **everything** or a massive set of sources, but representing a range of sources, significant for their own reasons (audience share, history, influence).
  
@@ -74,7 +74,7 @@ The fun part!
 
  - while adding news each month (or so)
  
-## And straight up social science
+## also, do social science
 
  - polarization
  - agenda setting

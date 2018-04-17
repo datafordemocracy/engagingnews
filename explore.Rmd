@@ -29,32 +29,355 @@ h3 { /* Header 3 */
 </style>
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 # Some exploration for fun
 
- - readability, sentiment
- - topics, keyword comparisons
+With a focus on the legacy newspapers
+
+## Volume and complexity of news
+
+```{r vol, message = FALSE, cache = TRUE}
+rm(list=ls())
+library(tidyverse)
+library(quanteda)
+library(scales)
+library(wordcloud)
+library(RColorBrewer)
+
+# Load the data and environment from readNews.R
+setwd("~/Box Sync/mpc/dataForDemocracy/presidency_project/newspaper/")
+load("workspaceR/newspaperExplore.RData")
+
+date.vec <- seq(from=as.Date("2017-01-20"), to=as.Date("2018-03-02"), by="2 weeks") # update to Friday after last story
+ggplot(qmeta2, aes(x=date)) + geom_point(stat="count") + 
+  facet_wrap(~pub) +
+  scale_x_date(labels = date_format("%m/%d"), breaks=date.vec) + 
+  labs(title = "Volume of Trump Coverage", 
+       subtitle = "New York Times, Washington Post, Wall Street Journal", 
+       x="Date", y="Number of Stories") +
+  theme(axis.text.x=element_text(angle=90, size=8), 
+        plot.title = element_text(face="bold", size=18, hjust=0), 
+        axis.title = element_text(face="bold", size=16),
+        panel.grid.minor = element_blank(),
+        legend.position="none")
+
+qmeta2 %>% filter(readability<100) %>% 
+  ggplot(aes(x = date, y = readability)) + 
+  geom_jitter(aes(color=pub), alpha=0.05, width=0.25, height=0.0, size=2) +
+  geom_smooth(aes(color=pub)) +
+  scale_x_date(labels = date_format("%m/%d"), breaks=date.vec) + 
+  ggtitle("'Readability' of Newspaper Coverage of Trump") +
+  labs(y = "Readability (grade level)", x = "Date of Article") +
+  scale_color_manual(values=c("blue3","turquoise","orange3"), name="Source") +
+  theme(plot.title = element_text(face="bold", size=18, hjust=0),
+        axis.title = element_text(face="bold", size=16),
+        panel.grid.minor = element_blank(), legend.position = c(0.95,0.9),
+        axis.text.x = element_text(angle=90),
+        legend.text=element_text(size=10))
+
+```
+
+Via Flesch-Kincaid readability measure: $$readability = 0.39 \left(\frac{words}{sentences}\right) + 11.8\left(\frac{syllables}{words}\right) $$
+
+<div style="margin-bottom:50px;">
+</div>
+
+## Sentiment/polarity of information and news
+
+Via [sentimentr](https://cran.r-project.org/web/packages/sentimentr/README.html)
+
+```{r tone, message = FALSE, cache = TRUE}
+rm(list=ls())
+library(tidyverse)
+library(quanteda)
+library(scales)
+
+# Load the data and environment from readNews.R
+setwd("~/Box Sync/mpc/dataForDemocracy/presidency_project/newspaper/")
+load("workspaceR/newspaperSentiment.RData")
+
+date.vec <- seq(from=as.Date("2017-01-20"), to=as.Date("2018-03-02"), by="2 weeks") # update to Friday after last story
+# Plot!
+ggplot(qmeta2, aes(x=date, y=avgSent)) +
+  geom_jitter(aes(color=pub), width=0.2, height=0.0, size=2, alpha=.05) +
+  geom_hline(yintercept=median(qmeta2$avgSent), color="gray50") +
+  geom_smooth(aes(color=pub)) +
+  scale_x_date(labels = date_format("%m/%d"), breaks=date.vec) +
+  labs(title = "Sentiment of Trump Coverage",
+       subtitle = "New York Times, Washington Post, Wall Street Journal", 
+       y = "Average Sentiment across Sentences", x = "Date of Article") +
+  scale_color_manual(values=c("blue3", "turquoise", "orange3"), name="Source") +
+  theme(plot.title = element_text(face="bold", size=20, hjust=0),
+        axis.title = element_text(face="bold", size=14),
+        panel.grid.minor = element_blank(), legend.position = c(0.95,0.9),
+        axis.text.x = element_text(angle=90),
+        legend.text=element_text(size=12))
+
+# Just opeds again
+ggplot(filter(qmeta2, oped==1), aes(x=date, y=avgSent)) +
+  geom_jitter(aes(color=pub), width=0.2, height=0.0, size=2, alpha=.15) +
+  geom_hline(yintercept=median(qmeta2$avgSent), color="gray50") +
+  geom_smooth(aes(color=pub)) +
+  scale_x_date(labels = date_format("%m/%d"), breaks=date.vec) +
+  labs(title = "Sentiment of Trump Op-Ed Coverage",
+       subtitle = "New York Times, Washington Post, Wall Street Journal", 
+       y = "Average Sentiment across Sentences", x = "Date of Article") +
+  scale_color_manual(values=c("blue3", "turquoise", "orange3"), name="Source") +
+  theme(plot.title = element_text(face="bold", size=20, hjust=0),
+        axis.title = element_text(face="bold", size=14),
+        panel.grid.minor = element_blank(), legend.position = c(0.95,0.9),
+        axis.text.x = element_text(angle=90),
+        legend.text=element_text(size=12))
+
+```
+
+<div style="margin-bottom:50px;">
+</div>
+
+## Moral foundations in news
+
+More on [moral foundations](http://moralfoundations.org/)
+
+### Care-Harm dimension
+
+Within news articles
+
+```{r harm, message = FALSE, cache = TRUE}
+rm(list=ls())
+library(tidyverse)
+library(quanteda)
+library(scales)
+library(gridExtra)
+
+# Load the data and environment from readNews.R
+setwd("~/Box Sync/mpc/dataForDemocracy/presidency_project/newspaper/")
+load("workspaceR/newspaperMoral.RData")
+
+# Care-Harm
+date.vec <- seq(from=as.Date("2017-01-20"), to=as.Date("2018-03-02"), by="2 weeks") # update to Friday after last story
+# Plot
+ph1 <- ggplot(qmeta2, aes(x=date, y=HarmVirtue)) +
+  geom_jitter(aes(color=pub), alpha=0.15, width=0.2, height=0.0, size=2) +
+  geom_hline(yintercept=mean(qmeta2$HarmVirtue), color="gray50") +
+  geom_smooth(aes(color=pub)) +
+  scale_x_date(labels = date_format("%m/%d"), breaks=date.vec) +
+  ggtitle("Care MF: Trump Coverage") +
+  labs(y = "Care Language", x = "Date") +
+  scale_color_manual(values=c("blue3", "turquoise", "orange3"), name="Source") +
+  theme(plot.title = element_text(face="bold", size=16, hjust=0),
+        axis.title = element_text(face="bold", size=12),
+        panel.grid.minor = element_blank(), legend.position = c(0.95,0.9),
+        axis.text.x = element_text(angle=90),
+        legend.text=element_text(size=10))
+
+ph2 <- ggplot(filter(qmeta2, HarmVice<100), aes(x=date, y=HarmVice)) + 
+  geom_jitter(aes(color=pub), alpha=0.15, width=0.2, height=0.0, size=2) +
+  geom_hline(yintercept=mean(qmeta2$HarmVice), color="gray50") +
+  geom_smooth(aes(color=pub)) +
+  scale_x_date(labels = date_format("%m/%d"), breaks=date.vec) +
+  ggtitle("Harm MF: Trump Coverage") +
+  labs(y = "Harm Language", x = "Date") +
+  scale_color_manual(values=c("blue3", "turquoise", "orange3"), name="Source") +
+  theme(plot.title = element_text(face="bold", size=16, hjust=0),
+        axis.title = element_text(face="bold", size=12),
+        panel.grid.minor = element_blank(), legend.position = c(0.95,0.9),
+        axis.text.x = element_text(angle=90),
+        legend.text=element_text(size=10))
+
+grid.arrange(ph1, ph2, nrow = 1)
+
+```
+
+Within op-eds
+
+```{r harmoped, message = FALSE, cache = TRUE}
+rm(list=ls())
+library(tidyverse)
+library(quanteda)
+library(scales)
+library(gridExtra)
+
+# Load the data and environment from readNews.R
+setwd("~/Box Sync/mpc/dataForDemocracy/presidency_project/newspaper/")
+load("workspaceR/newspaperMoral.RData")
+
+# Just opeds
+# Plot
+phoped1 <- ggplot(filter(qmeta2, oped==1), aes(x=date, y=HarmVirtue)) +
+  geom_jitter(aes(color=pub), alpha=0.15, width=0.2, height=0.0, size=2) +
+  geom_hline(yintercept=mean(qmeta2$HarmVirtue), color="gray50") +
+  geom_smooth(aes(color=pub)) +
+  scale_x_date(labels = date_format("%m/%d"), breaks=date.vec) +
+  ggtitle("Care MF: Trump Op-Eds") +
+  labs(y = "Care Language", x = "Date") +
+  scale_color_manual(values=c("blue3", "turquoise", "orange3"), name="Source") +
+  theme(plot.title = element_text(face="bold", size=16, hjust=0),
+        axis.title = element_text(face="bold", size=12),
+        panel.grid.minor = element_blank(), legend.position = c(0.95,0.9),
+        axis.text.x = element_text(angle=90),
+        legend.text=element_text(size=10))
+
+phoped2 <- ggplot(filter(qmeta2, HarmVice<100 & oped==1), aes(x=date, y=HarmVice)) + 
+  geom_jitter(aes(color=pub), alpha=0.15, width=0.2, height=0.0, size=2) +
+  geom_hline(yintercept=mean(qmeta2$HarmVice), color="gray50") +
+  geom_smooth(aes(color=pub)) +
+  scale_x_date(labels = date_format("%m/%d"), breaks=date.vec) +
+  ggtitle("Harm MF: Trump Op-Eds") +
+  labs(y = "Harm Language", x = "Date") +
+  scale_color_manual(values=c("blue3", "turquoise", "orange3"), name="Source") +
+  theme(plot.title = element_text(face="bold", size=16, hjust=0),
+        axis.title = element_text(face="bold", size=12),
+        panel.grid.minor = element_blank(), legend.position = c(0.95,0.9),
+        axis.text.x = element_text(angle=90),
+        legend.text=element_text(size=10))
+
+grid.arrange(phoped1, phoped2, nrow = 1)
+```
+
+<div style="margin-bottom:50px;">
+</div>
+
+### Ingroup/Loyaly-Other/Betrayal dimension
+
+Within news articles
+
+```{r ingroup, message = FALSE, cache = TRUE}
+rm(list=ls())
+library(tidyverse)
+library(quanteda)
+library(scales)
+library(gridExtra)
+
+# Load the data and environment from readNews.R
+setwd("~/Box Sync/mpc/dataForDemocracy/presidency_project/newspaper/")
+load("workspaceR/newspaperMoral.RData")
+
+# Ingroup/loyalty-Others/betrayal
+pi1 <- ggplot(filter(qmeta2, IngroupVirtue<100), aes(x=date, y=IngroupVirtue)) + 
+  geom_jitter(aes(color=pub), alpha=0.15, width=0.2, height=0.0, size=2) +
+  geom_hline(yintercept=mean(qmeta2$FairnessVirtue), color="gray50") +
+  geom_smooth(aes(color=pub)) +
+  scale_x_date(labels = date_format("%m/%d"), breaks=date.vec) +
+  ggtitle("Ingroup MF: Trump Coverage") +
+  labs(y = "Ingroup Language", x = "Date") +
+  scale_color_manual(values=c("blue3", "turquoise", "orange3"), name="Source") +
+  theme(plot.title = element_text(face="bold", size=16, hjust=0),
+        axis.title = element_text(face="bold", size=12),
+        panel.grid.minor = element_blank(), legend.position = c(0.95,0.9),
+        axis.text.x = element_text(angle=90),
+        legend.text=element_text(size=10))
+
+pi2 <- ggplot(filter(qmeta2, IngroupVice<100), aes(x=date, y=IngroupVice)) + 
+  geom_jitter(aes(color=pub), alpha=0.15, width=0.2, height=0.0, size=2) +
+  geom_hline(yintercept=mean(qmeta2$FairnessVice), color="gray50") +
+  geom_smooth(aes(color=pub)) +
+  scale_x_date(labels = date_format("%m/%d"), breaks=date.vec) +
+  ggtitle("Outgroup MF: Trump Coverage") +
+  labs(y = "Outgroup Language", x = "Date") +
+  scale_color_manual(values=c("blue3", "turquoise", "orange3"), name="Source") +
+  theme(plot.title = element_text(face="bold", size=16, hjust=0),
+        axis.title = element_text(face="bold", size=12),
+        panel.grid.minor = element_blank(), legend.position = c(0.95,0.9),
+        axis.text.x = element_text(angle=90),
+        legend.text=element_text(size=10))
+
+grid.arrange(pi1, pi2, nrow = 1)
+```
+
+Within op-eds
+
+```{r ingroupoped, message = FALSE, cache = TRUE}
+rm(list=ls())
+library(tidyverse)
+library(quanteda)
+library(scales)
+library(gridExtra)
+
+# Load the data and environment from readNews.R
+setwd("~/Box Sync/mpc/dataForDemocracy/presidency_project/newspaper/")
+load("workspaceR/newspaperMoral.RData")
+
+# OPEDS: Ingroup/loyalty-Others/betrayal
+pioped1 <- ggplot(filter(qmeta2, IngroupVirtue<100 & oped==1), aes(x=date, y=IngroupVirtue)) + 
+  geom_jitter(aes(color=pub), alpha=0.15, width=0.2, height=0.0, size=2) +
+  geom_hline(yintercept=mean(qmeta2$FairnessVirtue), color="gray50") +
+  geom_smooth(aes(color=pub)) +
+  scale_x_date(labels = date_format("%m/%d"), breaks=date.vec) +
+  ggtitle("Ingroup MF: Trump Op-Eds") +
+  labs(y = "Ingroup Language", x = "Date") +
+  scale_color_manual(values=c("blue3", "turquoise", "orange3"), name="Source") +
+  theme(plot.title = element_text(face="bold", size=16, hjust=0),
+        axis.title = element_text(face="bold", size=12),
+        panel.grid.minor = element_blank(), legend.position = c(0.95,0.9),
+        axis.text.x = element_text(angle=90),
+        legend.text=element_text(size=10))
+
+pioped2 <- ggplot(filter(qmeta2, IngroupVice<100 & oped==1), aes(x=date, y=IngroupVice)) + 
+  geom_jitter(aes(color=pub), alpha=0.15, width=0.2, height=0.0, size=2) +
+  geom_hline(yintercept=mean(qmeta2$FairnessVice), color="gray50") +
+  geom_smooth(aes(color=pub)) +
+  scale_x_date(labels = date_format("%m/%d"), breaks=date.vec) +
+  ggtitle("Outgroup MF: Trump Op-Eds") +
+  labs(y = "Outgroup Language", x = "Date") +
+  scale_color_manual(values=c("blue3", "turquoise", "orange3"), name="Source") +
+  theme(plot.title = element_text(face="bold", size=16, hjust=0),
+        axis.title = element_text(face="bold", size=12),
+        panel.grid.minor = element_blank(), legend.position = c(0.95,0.9),
+        axis.text.x = element_text(angle=90),
+        legend.text=element_text(size=10))
+
+grid.arrange(pioped1, pioped2, nrow = 1)
+```
+
+<div style="margin-bottom:50px;">
+</div>
+
+## Topics/themes in news
+
+Via LDA topic model
+
+```{r topic, message = FALSE, cache = TRUE}
+rm(list=ls())
+library(tidyverse)
+library(quanteda)
+library(topicmodels)
+library(ggridges)
+library(lubridate)
+
+# Load the data and environment from readNews.R
+setwd("~/Box Sync/mpc/dataForDemocracy/presidency_project/newspaper/")
+load("workspaceR/newspaperTopicModel.RData")
+
+ggplot(topicweeklong2, aes(x=week, y=terms2, height=prevalence, group=terms2)) + 
+  ggtitle("Topical Prevalence by Week") +
+  labs(y = "", x = "Weeks since Inauguration") +
+  scale_x_continuous(breaks=seq(5,50,5)) +
+  geom_density_ridges(stat="identity", scale = 2, fill="lightblue", color="lightblue") + 
+  theme_ridges(font_size=6)
+
+ggplot(topicpublong, aes(x=reorder(terms, prev), y=prev, fill=pub)) +
+  geom_bar(stat="identity", position="dodge", width=0.5) +
+  scale_fill_manual(values=c("blue3", "turquoise", "orange3")) + 
+  labs(x="Topic", y="Prevalence Percent") +
+  coord_flip() + ggtitle("Topic Prevalence by Publication") +
+  theme(legend.text=element_text(size=6))
+
+
+```
+
+See more on topics [here](http://people.virginia.edu/~mpc8t/datafordemocracy/papertopics100_2018_03/).
+
+# So much to do
+
+## Analyze
+
+ - issue emphases, ideological positioning, named entities, events, ...
+ - combinations of features (polarity and issues, morality and topics)
+ - word embeddings for "partisan bias" in news sources?
  
-# CONVERSATION
+## Build
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+ - dynamic visualizations
+ - digital, searchable resource

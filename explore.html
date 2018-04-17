@@ -332,31 +332,70 @@ h3 { /* Header 3 */
 </style>
 <div id="some-exploration-for-fun" class="section level1">
 <h1>Some exploration for fun</h1>
+<p>With a focus on the legacy newspapers</p>
+<div id="volume-and-complexity-of-news" class="section level2">
+<h2>Volume and complexity of news</h2>
+<p><img src="explore_files/figure-html/vol-1.png" width="672" /><img src="explore_files/figure-html/vol-2.png" width="672" /></p>
+<p>Via Flesch-Kincaid readability measure: <span class="math display">\[readability = 0.39 \left(\frac{words}{sentences}\right) + 11.8\left(\frac{syllables}{words}\right) \]</span></p>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="sentimentpolarity-of-information-and-news" class="section level2">
+<h2>Sentiment/polarity of information and news</h2>
+<p>Via <a href="https://cran.r-project.org/web/packages/sentimentr/README.html">sentimentr</a></p>
+<p><img src="explore_files/figure-html/tone-1.png" width="672" /><img src="explore_files/figure-html/tone-2.png" width="672" /></p>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="moral-foundations-in-news" class="section level2">
+<h2>Moral foundations in news</h2>
+<p>More on <a href="http://moralfoundations.org/">moral foundations</a></p>
+<div id="care-harm-dimension" class="section level3">
+<h3>Care-Harm dimension</h3>
+<p>Within news articles</p>
+<p><img src="explore_files/figure-html/harm-1.png" width="672" /></p>
+<p>Within op-eds</p>
+<p><img src="explore_files/figure-html/harmoped-1.png" width="672" /></p>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="ingrouployaly-otherbetrayal-dimension" class="section level3">
+<h3>Ingroup/Loyaly-Other/Betrayal dimension</h3>
+<p>Within news articles</p>
+<p><img src="explore_files/figure-html/ingroup-1.png" width="672" /></p>
+<p>Within op-eds</p>
+<p><img src="explore_files/figure-html/ingroupoped-1.png" width="672" /></p>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+</div>
+<div id="topicsthemes-in-news" class="section level2">
+<h2>Topics/themes in news</h2>
+<p>Via LDA topic model</p>
+<p><img src="explore_files/figure-html/topic-1.png" width="672" /><img src="explore_files/figure-html/topic-2.png" width="672" /></p>
+<p>See more on topics <a href="http://people.virginia.edu/~mpc8t/datafordemocracy/papertopics100_2018_03/">here</a>.</p>
+</div>
+</div>
+<div id="so-much-to-do" class="section level1">
+<h1>So much to do</h1>
+<div id="analyze" class="section level2">
+<h2>Analyze</h2>
 <ul>
-<li>readability, sentiment</li>
-<li>topics, keyword comparisons</li>
+<li>issue emphases, ideological positioning, named entities, events, …</li>
+<li>combinations of features (polarity and issues, morality and topics)</li>
+<li>word embeddings for “partisan bias” in news sources?</li>
 </ul>
 </div>
-<div id="conversation" class="section level1">
-<h1>CONVERSATION</h1>
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
-</div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="explore_files/figure-html/pressure-1.png" width="672" /></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<div id="build" class="section level2">
+<h2>Build</h2>
+<ul>
+<li>dynamic visualizations</li>
+<li>digital, searchable resource</li>
+</ul>
 </div>
 </div>
 
